@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>EnergyDrive Systems | Development Baseline</title>
+  <link rel="stylesheet" href="baseline.css">
+  <script src="lucide.min.js" defer></script>
+  <script src="baseline.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#presentation">Skip to presentation</a>
+  <main id="presentation" aria-label="EnergyDrive development baseline presentation">
+    <section class="slide overview" id="slide-1" data-title="Shared foundation" aria-labelledby="title-1">
+      <header class="slide-header">
+        <img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive">
+        <span class="eyebrow">Engineering baseline <span class="divider">/</span> 01</span>
+      </header>
+      <div class="intro">
+        <p class="kicker">ENERGYDRIVE SYSTEMS</p>
+        <h1 id="title-1">Development baseline.</h1>
+        <p class="lead">One starting point. Consistent standards.<br>Human-controlled delivery.</p>
+      </div>
+      <div class="foundation-map" aria-label="Three foundations: environment, standards, and delivery">
+        <article class="foundation">
+          <span class="icon-block mint"><i data-lucide="container" aria-hidden="true"></i></span>
+          <p class="node-number">01</p><h2>Shared environment</h2>
+          <p>Containerized development.<br>Locked Python dependencies.</p>
+        </article>
+        <article class="foundation">
+          <span class="icon-block blue"><i data-lucide="list-checks" aria-hidden="true"></i></span>
+          <p class="node-number">02</p><h2>Shared standards</h2>
+          <p>Clear structure, focused tests,<br>and evidence-based review.</p>
+        </article>
+        <article class="foundation">
+          <span class="icon-block amber"><i data-lucide="git-pull-request" aria-hidden="true"></i></span>
+          <p class="node-number">03</p><h2>Controlled delivery</h2>
+          <p>Reviewable source, immutable<br>artifacts, and human approval.</p>
+        </article>
+      </div>
+      <footer class="slide-footer"><span>A reusable GitHub starter, not a deployed application.</span><span>01 / 05</span></footer>
+    </section>
+
+    <section class="slide" id="slide-2" data-title="Developer experience" aria-labelledby="title-2" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Developer experience <span class="divider">/</span> 02</span></header>
+      <div class="section-title"><p class="kicker">FROM REPOSITORY TO READY</p><h1 id="title-2">Same setup. Every project.</h1><p class="subtitle">A repeatable environment instead of machine-specific setup.</p></div>
+      <ol class="startup-flow">
+        <li><span class="step-index">1</span><i data-lucide="git-branch" aria-hidden="true"></i><h2>Clone &amp; open</h2><p>Start from the template<br>in VS Code.</p></li>
+        <li><span class="step-index">2</span><i data-lucide="container" aria-hidden="true"></i><h2>Reopen in Container</h2><p>Choose the container<br>after reviewing/trusting it.</p></li>
+        <li><span class="step-index">3</span><i data-lucide="package-check" aria-hidden="true"></i><h2>Sync automatically</h2><p>uv creates/syncs .venv<br>from locked dependencies.</p></li>
+        <li><span class="step-index">4</span><i data-lucide="code-xml" aria-hidden="true"></i><h2>Build &amp; verify</h2><p>Use the configured<br>Python interpreter and tools.</p></li>
+      </ol>
+      <div class="environment-band">
+        <div><span class="band-label">Inside the container</span><p>Python .venv <span class="dot">&middot;</span> uv.lock <span class="dot">&middot;</span> Ruff <span class="dot">&middot;</span> Pyright <span class="dot">&middot;</span> pytest</p></div>
+        <i data-lucide="check-check" aria-hidden="true"></i>
+      </div>
+      <div class="two-notes"><p><strong>Prerequisites</strong>Docker running + VS Code Dev Containers.</p><p><strong>Explicit exceptions</strong>Designer runs on the desktop; Ignition scripts use its embedded runtime.</p></div>
+      <footer class="slide-footer"><span>Opening the folder alone does not silently start containers or apps.</span><span>02 / 05</span></footer>
+    </section>
+
+    <section class="slide" id="slide-3" data-title="Standards and agents" aria-labelledby="title-3" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Standards &amp; agents <span class="divider">/</span> 03</span></header>
+      <div class="section-title"><p class="kicker">GUIDANCE + EVIDENCE</p><h1 id="title-3">Agents assist. Standards lead.</h1></div>
+      <div class="standards-grid">
+        <div class="rules-column">
+          <article class="rule"><i data-lucide="scan-eye" aria-hidden="true"></i><div><h2>Two-part review</h2><p>Standards compliance and requirements coverage are assessed separately.</p></div></article>
+          <article class="rule"><i data-lucide="bug" aria-hidden="true"></i><div><h2>Bug-fix evidence</h2><p>Reproduce the symptom, verify the root cause, and demonstrate the regression fix.</p></div></article>
+          <article class="rule"><i data-lucide="panels-top-left" aria-hidden="true"></i><div><h2>Material 3 by default</h2><p>Shared UI tokens, adaptive layouts, accessible controls, and actual usability checks.</p></div></article>
+          <article class="rule"><i data-lucide="notebook-pen" aria-hidden="true"></i><div><h2>Documentation in every PR</h2><p>Affected docs and a change record ship with the implementation.</p></div></article>
+        </div>
+        <div class="agent-column">
+          <p class="band-label">Shared agent entry points</p><h2>Claude Code<br>Codex<br>GitHub Copilot</h2>
+          <div class="skill-stat"><span>10</span><div><strong>focused skills</strong><p>Interview &amp; terminology<br>Implement &amp; diagnose<br>Review &amp; assess readiness<br>Ignition, database &amp; Terraform</p></div></div>
+        </div>
+      </div>
+      <footer class="slide-footer"><span>Instructions guide agents. CI, review, and permissions enforce controls.</span><span>03 / 05</span></footer>
+    </section>
+
+    <section class="slide" id="slide-4" data-title="Technology coverage" aria-labelledby="title-4" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Technology coverage <span class="divider">/</span> 04</span></header>
+      <div class="section-title"><p class="kicker">ONE BASELINE, DISTINCT RUNTIMES</p><h1 id="title-4">A common foundation.<br>The right rules for each system.</h1></div>
+      <div class="technology-grid">
+        <article class="technology mint"><i data-lucide="code-xml" aria-hidden="true"></i><h2>Python</h2><p>Services &amp; integrations</p><ul><li>Typed contracts and locked dependencies</li><li>Container/venv tests and failure checks</li></ul></article>
+        <article class="technology blue"><i data-lucide="monitor" aria-hidden="true"></i><h2>Ignition Perspective</h2><p>UI &amp; SCADA</p><ul><li>Native resources with Material 3 principles</li><li>Alarms, quality, and gateway acceptance</li></ul></article>
+        <article class="technology amber"><i data-lucide="database" aria-hidden="true"></i><h2>Databases</h2><p>BigQuery &middot; PostgreSQL &middot; SQL Server</p><ul><li>Data/time contracts and migration parity</li><li>Dialect-specific behavior and query costs</li></ul></article>
+        <article class="technology rose"><i data-lucide="blocks" aria-hidden="true"></i><h2>Terraform</h2><p>Infrastructure as code</p><ul><li>Versioned configuration and state boundaries</li><li>Drift, replacement, and ownership review</li></ul></article>
+      </div>
+      <footer class="slide-footer"><span>Combined or separate projects; activate only the profiles you need.</span><span>04 / 05</span></footer>
+    </section>
+
+    <section class="slide delivery" id="slide-5" data-title="Controlled delivery" aria-labelledby="title-5" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Controlled delivery <span class="divider">/</span> 05</span></header>
+      <div class="section-title"><p class="kicker">EVIDENCE BEFORE PROMOTION</p><h1 id="title-5">Automate checks.<br>Keep people in control.</h1></div>
+      <ol class="release-flow">
+        <li><i data-lucide="git-pull-request" aria-hidden="true"></i><strong>Review</strong></li>
+        <li><i data-lucide="list-checks" aria-hidden="true"></i><strong>Validate</strong></li>
+        <li><i data-lucide="package" aria-hidden="true"></i><strong>Package</strong></li>
+        <li><i data-lucide="flask-conical" aria-hidden="true"></i><strong>Test</strong></li>
+        <li class="approval"><i data-lucide="user-check" aria-hidden="true"></i><strong>Human approval</strong></li>
+        <li><i data-lucide="send" aria-hidden="true"></i><strong>Deploy</strong></li>
+        <li><i data-lucide="check-check" aria-hidden="true"></i><strong>Verify</strong></li>
+      </ol>
+      <div class="delivery-columns">
+        <div><h2>Provided by the template</h2><p>Quality/security checks, artifact packaging, promotion scaffold, and readiness guidance.</p></div>
+        <div><h2>Configured by each project</h2><p>Real owners, GitHub protections, deployment adapters, runtime acceptance, and recovery.</p></div>
+      </div>
+      <div class="release-boundary"><i data-lucide="shield-check" aria-hidden="true"></i><p><strong>Production stays blocked until configured.</strong>Agents have no production execution authority. Equipment-affecting changes also need operational approval.</p></div>
+      <footer class="slide-footer"><span>Standardized development. Evidence-based review. Human-controlled production.</span><span>05 / 05</span></footer>
+    </section>
+  </main>
+
+  <nav class="toolbar" aria-label="Presentation controls">
+    <div class="slide-navigation">
+      <button id="previous" class="icon-button" type="button" aria-label="Previous slide" title="Previous slide"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="fallback">&larr;</span></button>
+      <label class="sr-only" for="slide-picker">Select slide</label>
+      <select id="slide-picker"><option value="0">01 Shared foundation</option><option value="1">02 Developer experience</option><option value="2">03 Standards &amp; agents</option><option value="3">04 Technology coverage</option><option value="4">05 Controlled delivery</option></select>
+      <button id="next" class="icon-button primary-button" type="button" aria-label="Next slide" title="Next slide"><i data-lucide="arrow-right" aria-hidden="true"></i><span class="fallback">&rarr;</span></button>
+    </div>
+    <div class="presentation-actions">
+      <button id="fullscreen" class="icon-button" type="button" aria-label="Enter fullscreen" title="Enter fullscreen"><i data-lucide="maximize" aria-hidden="true"></i><span class="fallback">&#x26F6;</span></button>
+      <button id="print" class="icon-button" type="button" aria-label="Print or save all slides as PDF" title="Print or save all slides as PDF"><i data-lucide="printer" aria-hidden="true"></i><span class="fallback">PDF</span></button>
+    </div>
+  </nav>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>

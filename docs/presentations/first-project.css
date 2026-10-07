@@ -1,0 +1,59 @@
+.section-title { padding: 26px 0 18px; }
+h1 { font-size: 44px; }
+.subtitle { font-size: 18px; }
+.walkthrough-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; margin: 4px 0 24px; }
+.walkthrough-grid.equal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.walkthrough-grid h2, .workflow-step h2 { font-size: 22px; }
+.walkthrough-grid p, .walkthrough-grid li { font-size: 17px; line-height: 1.45; }
+.walkthrough-grid p { margin-bottom: 14px; }
+.detail-list { margin: 0; padding-left: 22px; }
+.detail-list li { margin-bottom: 12px; padding-left: 4px; }
+.checkpoint { border-left: 4px solid #44765a; padding-left: 18px; }
+.checkpoint h2 { display: flex; gap: 10px; align-items: center; }
+.checkpoint h2 .lucide { width: 24px; height: 24px; }
+.checkpoint p { color: var(--md-sys-color-on-surface); }
+.context-label { font-size: 13px; font-weight: 700; color: #325f81; margin-bottom: 12px; display: block; }
+.context-label.container { color: #365e47; }
+pre { font: 16px/1.55 "Consolas", "DejaVu Sans Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; background: #eef3f0; border: 1px solid var(--md-sys-color-outline-variant); border-radius: var(--md-sys-shape-small); padding: 20px; margin: 0; color: #17392c; }
+code { font-family: "Consolas", "DejaVu Sans Mono", monospace; font-size: 0.93em; overflow-wrap: anywhere; }
+.prompt { font-size: 17px; line-height: 1.55; max-width: none; }
+.notice { background: #fbf3df; padding: 16px 20px; margin: 0 0 24px; display: flex; gap: 14px; align-items: flex-start; }
+.notice p { margin: 0; font-size: 16px; }
+.notice .lucide { width: 24px; height: 24px; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li { counter-increment: step; border-top: 1px solid var(--md-sys-color-outline-variant); padding: 13px 0 13px 40px; position: relative; font-size: 17px; line-height: 1.4; }
+.steps li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; color: var(--md-sys-color-primary); font-weight: 700; }
+.path-strip { display: flex; gap: 12px; align-items: center; border-top: 1px solid var(--md-sys-color-outline-variant); border-bottom: 1px solid var(--md-sys-color-outline-variant); padding: 18px 0; margin: 10px 0 26px; }
+.path-strip span { font-size: 17px; font-weight: 700; }
+.path-strip .lucide { width: 22px; height: 22px; }
+.outcome-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 10px 0 30px; }
+.outcome-grid article { padding-top: 20px; border-top: 3px solid #bdd3c4; }
+.outcome-grid h2 { font-size: 22px; margin: 16px 0 10px; }
+.outcome-grid p { font-size: 17px; }
+.troubleshooting { display: grid; gap: 16px; margin-bottom: 24px; }
+.trouble-row { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.65fr); gap: 32px; padding: 16px 0; border-top: 1px solid var(--md-sys-color-outline-variant); }
+.trouble-row h2 { font-size: 21px; margin: 0; }
+.trouble-row p { font-size: 17px; margin: 0; }
+.acceptance-list { list-style: none; margin: 0; padding: 0; }
+.acceptance-list li { display: flex; align-items: flex-start; gap: 12px; margin: 0 0 15px; font-size: 17px; line-height: 1.4; }
+.acceptance-list .lucide { width: 22px; height: 22px; margin-top: 2px; }
+a { color: #205d83; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.source-link { font-size: 13px; }
+.long-code { font-size: 15px; }
+@media screen and (max-width: 1300px) and (min-width: 801px) { h1 { font-size: 40px; } .walkthrough-grid { gap: 28px; } }
+@media screen and (max-width: 800px) {
+  h1 { font-size: 32px; }
+  .walkthrough-grid, .walkthrough-grid.equal, .outcome-grid, .trouble-row { grid-template-columns: 1fr; gap: 22px; }
+  pre, .prompt { font-size: 14px; padding: 16px; }
+  .path-strip { flex-wrap: wrap; }
+  .path-strip span { font-size: 15px; }
+  .walkthrough-grid li { font-size: 16px; }
+  .notice { padding: 16px; }
+  .trouble-row { gap: 10px; }
+  .outcome-grid { gap: 10px; }
+}
+@media print {
+  h1 { font-size: 44px; }
+  .source-link { font-size: 13px; }
+  .slide-footer a { color: var(--md-sys-color-on-surface-variant); text-decoration: none; }
+}

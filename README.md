@@ -12,6 +12,9 @@ review checks responsive behavior, accessibility, and actual task-flow evidence.
 
 ## Start Here
 
+New to the template? Follow [Your First Project](docs/getting-started.md) from GitHub
+creation through cloning, container checks, agent startup, and your first setup PR.
+
 1. Create a GitHub repository from this template and complete `docs/PRD.md`.
 2. Read `docs/standards.md` and `docs/structure.md`; select profiles in the PRD.
 3. Add real CODEOWNERS and configure branch protection and protected environments
@@ -82,18 +85,27 @@ Use the container interpreter for editor type checking. Formatting fixes use
 | `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md` | Shared agent rules and client entry points |
 | `.agents/skills/` | Reviewed interview, implementation, review, runtime, and readiness workflows |
 | `docs/standards.md`, `docs/structure.md` | Engineering rules and repository layout |
+| `docs/getting-started.md` | First-project walkthrough and smoke-test acceptance checklist |
 | `docs/profiles/` | Material 3 UI, Python, Ignition, database, and Terraform rules |
 | `docs/PRD.md`, `docs/HANDOVER.md`, `GLOSSARY.md` | Requirements, current state, terminology |
 | `docs/deployment.md`, `docs/changes/` | Release controls and per-PR records |
 | `.github/workflows/` | Quality gates and fail-closed deployment scaffold |
 | `.devcontainer/`, `.vscode/extensions.json` | VS Code container lifecycle and host extension recommendation |
 | `assets/brand/` | Original EnergyDrive logo and practical reuse notes |
+| `docs/presentations/` | Branded infographic slides, editable browser source, and PDF |
 | `scripts/`, `tests/` | Template checks and their tests |
 | `Dockerfile`, `compose.yaml`, `pyproject.toml`, `uv.lock` | Isolated development tooling |
 | `infra/terraform/` | Infrastructure version baseline; no provisioned resources |
 
 See `docs/structure.md` for lazily created application directories. Terraform is
 included, but no cloud project, database, firewall, or identity is created.
+
+## Presentation
+
+The five-slide infographic summarizes the baseline for technical/business audiences.
+Open [the browser deck](docs/presentations/baseline.html) or
+[the standalone PDF](docs/presentations/baseline.pdf). See
+[presentation notes](docs/presentations/README.md) for editing, offline sharing, and printing.
 
 ## Releases
 

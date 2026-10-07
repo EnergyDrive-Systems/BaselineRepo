@@ -31,6 +31,17 @@ Implementation, review, and Perspective skills plus the PR template require UI e
 Perspective adapts the principles through native resources; existing safety/access rules
 and unrelated contributor changes remain unchanged.
 
+2026-10-07: Added a branded five-slide infographic under `docs/presentations/`, with
+offline browser navigation and a standalone 16:9 PDF. It includes Material 3 and the
+original small EnergyDrive logo, and distinguishes scaffolding from project activation.
+
+2026-10-07: Added a first-project walkthrough from GitHub template creation through
+clone/container/venv checks, agent startup, reopening, and project setup PR. The intended
+organization repository was verified reachable; the local origin still uses its old
+personal-owner URL. Latest local documentation changes must be published before a fresh
+GitHub copy can include them. No remote settings, commits, pushes, or new projects were
+created by the agent.
+
 ## Next Actions
 
 - [ ] Complete PRD and assign reviewer, release and operational approvers.
@@ -45,6 +56,8 @@ and unrelated contributor changes remain unchanged.
 - [ ] Verify skills discovery in each enabled client and review updates.
 - [ ] Confirm first-open/reopen behavior and interpreter/extension selection in VS Code
 	on each supported host OS; Windows lifecycle startup was verified with the CLI.
+	- [ ] Follow docs/getting-started.md against a new organization template copy; record
+		first-open, agent, reopening, CI, and any permission/authentication failures.
 
 ## Unresolved Gaps
 
@@ -89,3 +102,15 @@ Material 3: 31 policy/routing checks, edited-skill YAML/reference validation in 
 container `.venv`, and editor diagnostics passed. Existing Security policy was verified
 unchanged against Git. Actual UI usability/accessibility requires per-project runtime
 evidence; these checks validate instructions, not rendered interface conformance.
+
+Presentation: JavaScript syntax, all five slide layouts at 1440/390/320 pixels, logo
+loading, keyboard navigation/boundaries, and mobile control hit areas passed. Desktop
+screenshots were inspected. A real browser generated the PDF; a container-side parser
+verified five 16:9 pages with expected headings/footers. Integrated-browser print-media
+emulation was unreliable, so export evidence comes from the real browser instead.
+
+Onboarding guide: organization Git URL reachability, required-step/configuration checks,
+nine document links, container path/UID/venv, lint/format/types, 12 tests, dependency audit,
+and editor diagnostics passed. A human end-to-end test of a new GitHub template copy,
+VS Code GUI, agent sign-in, and reopen behavior remains outstanding. Publish the guide
+through a reviewed PR before expecting it in a new GitHub copy.

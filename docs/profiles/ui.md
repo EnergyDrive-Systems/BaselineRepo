@@ -81,7 +81,8 @@ them with manual review. Screenshots alone do not prove accessibility or usabili
 The standards review checks this profile; the requirements review checks that the intended
 user tasks work. Include evidence and limitations in the PR and change record. Missing
 runtime checks remain unverified. Agent routing and checklists guide compliance; this
-template does not contain a rendered UI or a CI test that certifies Material 3 conformance.
+policy does not itself implement an application UI or supply a CI test that certifies
+Material 3 conformance. Presentation examples are not proof of project UI acceptance.
 
 ## References
 

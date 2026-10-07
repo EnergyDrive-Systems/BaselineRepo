@@ -18,6 +18,7 @@ trees, `misc/`, duplicate standards, or application frameworks before they are n
 | `assets/brand/` | Reusable company artwork and provenance/usage notes, not project exports |
 | `docs/` | Requirements, standards, handover, release guidance, diagrams, decisions |
 | `docs/changes/` | One descriptive record per PR |
+| `docs/presentations/` | Stakeholder decks, their editable sources, and generated PDF documentation |
 | `.github/` | CI/CD, ownership, contributor entry points |
 | `.devcontainer/` | Container attachment, lifecycle initialization, and container editor settings |
 | `.vscode/` | Minimal shared editor recommendations; no project-specific auto-start tasks |
