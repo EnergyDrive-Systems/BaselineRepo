@@ -21,7 +21,7 @@ trees, `misc/`, duplicate standards, or application frameworks before they are n
 | `docs/presentations/` | Stakeholder decks, their editable sources, and generated PDF documentation |
 | `.github/` | CI/CD, ownership, contributor entry points |
 | `.devcontainer/` | Container attachment, lifecycle initialization, and container editor settings |
-| `.vscode/` | Minimal shared editor recommendations; no project-specific auto-start tasks |
+| `.vscode/` | Editor recommendations and explicit check tasks; no project-specific auto-start tasks |
 | `.agents/skills/` | Reviewed agent workflows |
 
 One service uses the root Python configuration and Dockerfile development/runtime

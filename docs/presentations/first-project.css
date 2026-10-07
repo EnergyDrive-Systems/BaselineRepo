@@ -1,4 +1,7 @@
 .section-title { padding: 26px 0 18px; }
+#slide-1 .section-title { padding-top: 18px; padding-bottom: 12px; }
+#slide-1 .outcome-grid { margin-top: 0; margin-bottom: 18px; }
+#slide-1 .outcome-grid article { padding-top: 12px; }
 h1 { font-size: 44px; }
 .subtitle { font-size: 18px; }
 .walkthrough-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; margin: 4px 0 24px; }

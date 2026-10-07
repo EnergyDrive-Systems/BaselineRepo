@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Your First Project | EnergyDrive</title>
+  <link rel="stylesheet" href="baseline.css">
+  <link rel="stylesheet" href="first-project.css">
+  <script src="lucide.min.js" defer></script>
+  <script src="baseline.js" defer></script>
+</head>
+<body data-deck-title="Your First Project | EnergyDrive">
+  <a class="skip-link" href="#presentation">Skip to presentation</a>
+  <main id="presentation" aria-label="Your first EnergyDrive project: detailed onboarding guide">
+    <section class="slide" id="slide-1" data-title="Your first project" aria-labelledby="title-1">
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Your first project <span class="divider">/</span> Roadmap</span></header>
+      <div class="section-title"><p class="kicker">ENERGYDRIVE SYSTEMS</p><h1 id="title-1">Your first project.<br>One click at a time.</h1><p class="subtitle">A beginner-friendly walkthrough using GitHub and VS Code menus.</p></div>
+      <div class="path-strip" aria-label="Workflow"><span>Prepare</span><i data-lucide="arrow-right" aria-hidden="true"></i><span>Create &amp; clone</span><i data-lucide="arrow-right" aria-hidden="true"></i><span>Container &amp; checks</span><i data-lucide="arrow-right" aria-hidden="true"></i><span>Agent &amp; first PR</span></div>
+      <div class="outcome-grid">
+        <article><i data-lucide="git-branch" aria-hidden="true"></i><h2>Your own repository</h2><p>An independent project under EnergyDrive-Systems, not a fork of the baseline.</p></article>
+        <article><i data-lucide="container" aria-hidden="true"></i><h2>A working environment</h2><p>Containerized tooling, a synced Python .venv, and repeatable verification.</p></article>
+        <article><i data-lucide="messages-square" aria-hidden="true"></i><h2>A prepared agent</h2><p>Shared standards understood before discussing or implementing your application.</p></article>
+      </div>
+      <div class="notice"><i data-lucide="info" aria-hidden="true"></i><p>No terminal commands need to be typed in this walkthrough. Ask your project lead or IT contact for help. The template prepares development; it does not start a finished application.</p></div>
+      <footer class="slide-footer"><a class="source-link" href="../getting-started.md">Source: Your First Project guide</a><span>01 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-2" data-title="Words in plain English" aria-labelledby="title-2" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">First time? <span class="divider">/</span> Key words</span></header>
+      <div class="section-title"><p class="kicker">THE WORDS WILL BECOME FAMILIAR</p><h1 id="title-2">A few words, in plain English.</h1></div>
+      <div class="walkthrough-grid equal">
+        <div><h2>Getting your workspace</h2><ul class="detail-list"><li><strong>Repository / repo:</strong> your project's files and saved history on GitHub.</li><li><strong>Template:</strong> a prepared starting set of files.</li><li><strong>Clone:</strong> download a working copy linked to your GitHub project.</li><li><strong>Container:</strong> an isolated workspace with the tools you need.</li></ul></div>
+        <div><h2>Making reviewed changes</h2><ul class="detail-list"><li><strong>.venv:</strong> the project's own Python environment, prepared for you.</li><li><strong>Branch:</strong> a separate workspace for changes before review.</li><li><strong>Commit:</strong> a named save point in your project's history.</li><li><strong>Pull request / PR:</strong> ask someone to review your branch before merging it.</li></ul></div>
+      </div>
+      <div class="notice"><i data-lucide="info" aria-hidden="true"></i><p>VS Code's <strong>Command Palette</strong> is a searchable menu, not a terminal. Selecting a menu action does not require learning a programming command.</p></div>
+      <footer class="slide-footer"><span>You are starting a project; template administration belongs to the owner/helper.</span><span>02 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-3" data-title="Prepare your computer" aria-labelledby="title-3" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 1 <span class="divider">/</span> Get ready</span></header>
+      <div class="section-title"><p class="kicker">ASK IT FOR INSTALLATION HELP</p><h1 id="title-3">Get your computer ready.</h1></div>
+      <div class="walkthrough-grid">
+        <div><ol class="steps"><li>Ask IT/project lead to install <strong>Git, VS Code, and Docker Desktop</strong> using approved processes.</li><li>Open <strong>Docker Desktop</strong> from the Start menu. Wait until its engine is running.</li><li>Open VS Code &gt; <strong>Extensions</strong> (four-squares icon). Search <strong>Dev Containers</strong> by Microsoft and click Install.</li><li>Use VS Code's <strong>Accounts</strong> menu and your browser to sign in to GitHub when needed.</li></ol></div>
+        <div class="checkpoint"><h2><i data-lucide="check-check" aria-hidden="true"></i>You should see</h2><p><strong>Docker is running</strong> and Dev Containers is installed. Git works behind VS Code's buttons.</p><p>Host Python is not required. Internet is needed for setup; agent accounts/subscriptions are separate.</p><p>Windows uses Linux containers and may need WSL 2. IT handles that setup, licensing, and administrator changes.</p></div>
+      </div>
+      <footer class="slide-footer"><span>Mac: Command instead of Ctrl. Linux: ask your helper about folder permissions.</span><span>03 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-4" data-title="Create the GitHub project" aria-labelledby="title-4" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 2 <span class="divider">/</span> GitHub</span></header>
+      <div class="section-title"><p class="kicker">THE ORGANIZATION OWNS THE NEW PROJECT</p><h1 id="title-4">Create, don't fork.</h1></div>
+      <div class="walkthrough-grid equal">
+        <div><ol class="steps"><li>Open <a href="https://github.com/EnergyDrive-Systems/BaselineRepo">EnergyDrive-Systems/BaselineRepo</a>.</li><li>Choose <strong>Use this template &gt; Create a new repository</strong>, not Fork.</li><li>Select owner <strong>EnergyDrive-Systems</strong>, not your personal account. Enter a name such as <strong>my-first-project</strong>.</li><li>Choose <strong>Private</strong> unless public use is approved. Leave all-branches inclusion off.</li><li>Create and check the organization and project name on the page.</li></ol></div>
+        <div class="checkpoint"><h2><i data-lucide="check-check" aria-hidden="true"></i>You should see</h2><p><strong>EnergyDrive-Systems / my-first-project</strong> on GitHub, with README and the .devcontainer folder.</p><p>If your lead already created it, use their project link and continue; don't create a duplicate.</p><p>No template button or organization owner option? Ask your lead. Do not publish personally as a workaround.</p></div>
+      </div>
+      <div class="notice"><i data-lucide="settings" aria-hidden="true"></i><p>Your project lead configures owners, protections, and deployment settings. You do not need to administer them just to open the project; they are not automatically copied with files.</p></div>
+      <footer class="slide-footer"><span>Use your actual agreed project name; my-first-project is only an example.</span><span>04 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-5" data-title="Clone and open VS Code" aria-labelledby="title-5" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 3 <span class="divider">/</span> VS Code clone dialog</span></header>
+      <div class="section-title"><p class="kicker">CLONE YOUR NEW PROJECT, NOT BASELINEREPO</p><h1 id="title-5">Clone and open VS Code.</h1></div>
+      <div class="walkthrough-grid">
+        <div><ol class="steps"><li>On your <strong>new project's</strong> GitHub page, click <strong>Code &gt; HTTPS &gt; copy icon</strong>.</li><li>In VS Code choose <strong>View &gt; Command Palette</strong> (Ctrl+Shift+P). Search <strong>Git: Clone</strong> and select it.</li><li>Paste the address, press Enter, and complete browser sign-in if asked.</li><li>Choose a parent folder through the folder picker, for example C:\repos. Create it in File Explorer if needed.</li><li>When finished, click <strong>Open</strong> or <strong>Open in New Window</strong>.</li></ol></div>
+        <div class="checkpoint"><h2><i data-lucide="check-check" aria-hidden="true"></i>You should see</h2><p>The right project name and README in <strong>Explorer</strong> (files icon), with no changed files in Source Control initially.</p><p>VS Code creates the project folder inside the selected parent folder. Don't reuse an existing folder with the same name.</p><p>Ask your helper if the project connection is unclear. Clone the new project, not BaselineRepo.</p></div>
+      </div>
+      <div class="notice"><i data-lucide="shield-check" aria-hidden="true"></i><p>Authenticate through the approved GitHub browser/credential flow. Never put passwords or tokens in commands, docs, remote URLs, or agent chats.</p></div>
+      <footer class="slide-footer"><span>No terminal commands needed. Mac/Linux users choose a suitable local folder.</span><span>05 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-6" data-title="Reopen in Container" aria-labelledby="title-6" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 4 <span class="divider">/</span> Prepared environment</span></header>
+      <div class="section-title"><p class="kicker">CHOOSE THE EXECUTION ENVIRONMENT EXPLICITLY</p><h1 id="title-6">Reopen in Container.</h1></div>
+      <div class="walkthrough-grid equal">
+        <div><ol class="steps"><li>Review the project setup and trust the workspace if appropriate.</li><li>Click <strong>Reopen in Container</strong>. If no prompt appears, search <strong>Dev Containers: Reopen in Container</strong> in the Command Palette.</li><li>Wait for preparation to finish. First startup can take several minutes.</li><li>Use the reopened window for project work. You do not need to type into a terminal.</li></ol></div>
+        <div class="checkpoint"><h2><i data-lucide="container" aria-hidden="true"></i>You should see</h2><p>The bottom-left connection indicator identifies a <strong>Dev Container</strong>.</p><p>The project's Python environment and dependencies are prepared automatically. Python, Pylance, and Ruff install inside it; accept prompts if shown.</p><p>If the window is still local or an error appears, stop and ask for help before editing.</p></div>
+      </div>
+      <div class="notice"><i data-lucide="info" aria-hidden="true"></i><p>Opening a folder alone does not silently attach or launch an app. No database, gateway, Terraform operation, app server, or production connection starts here.</p></div>
+      <footer class="slide-footer"><span>Keep project work in this container-connected window.</span><span>06 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-7" data-title="Run checks from a menu" aria-labelledby="title-7" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 5 <span class="divider">/</span> Menu-driven checks</span></header>
+      <div class="section-title"><p class="kicker">SELECT AN ACTION, DON'T TYPE A COMMAND</p><h1 id="title-7">Run checks from a menu.</h1></div>
+      <div class="walkthrough-grid">
+        <div><ol class="steps"><li>In the reopened window choose <strong>Terminal &gt; Run Task</strong>.</li><li>If your menu differs, search <strong>Tasks: Run Task</strong> in the Command Palette.</li><li>Select <strong>Baseline: Run All Quality Checks</strong>.</li><li>Let the results panel finish. This panel shows output; you don't need to type into it.</li></ol></div>
+        <div class="checkpoint"><h2><i data-lucide="check-check" aria-hidden="true"></i>You should see</h2><p>Six checks run: environment, code quality, formatting, types, tests, and dependency audit.</p><p>Each finishes with <strong>PASS</strong>. The summary says:</p><p><strong>All six quality checks passed.<br>Your development setup is ready.</strong></p><p>The audit needs internet access. These tasks check files; they do not fix or deploy them.</p></div>
+      </div>
+      <div class="notice"><i data-lucide="triangle-alert" aria-hidden="true"></i><p>A check failure is something to report, not hide. Tell your helper which check failed and show its output; do not disable checks or change versions to make it disappear.</p></div>
+      <footer class="slide-footer"><span>The tasks require the prepared container and refuse the wrong execution location.</span><span>07 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-8" data-title="Results and Testing" aria-labelledby="title-8" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 5 <span class="divider">/</span> Results &amp; Testing</span></header>
+      <div class="section-title"><p class="kicker">YOU DON'T NEED TO INTERPRET EVERY LOG LINE</p><h1 id="title-8">Know what success looks like.</h1></div>
+      <div class="walkthrough-grid equal">
+        <div><h2>Expected results</h2><ul class="detail-list"><li><strong>Environment ready</strong>, Python 3.13.x, and /workspace/.venv.</li><li>Code quality, formatting, and type checks pass; types show zero errors.</li><li>Tests pass; the starter currently has 12.</li><li>No unresolved audit findings. A missing src message is normal before app code if types still show zero errors.</li></ul></div>
+        <div><h2>A visual test-results view</h2><ol class="steps"><li>Click <strong>Testing</strong> (the beaker icon), then <strong>Run All Tests</strong>.</li><li>If hidden: <strong>View &gt; Open View &gt; Testing</strong>.</li><li>If tests don't appear: <strong>Python: Configure Tests &gt; pytest &gt; tests folder</strong>, or ask for help.</li><li>The menu task <strong>Baseline: Run Tests</strong> remains an alternative.</li></ol></div>
+      </div>
+      <div class="notice"><i data-lucide="settings" aria-hidden="true"></i><p>If Python is wrong, select <strong>Python: Select Interpreter</strong> and choose /workspace/.venv/bin/python. You don't need to locate a Windows .venv folder; ask your helper if unsure.</p></div>
+      <footer class="slide-footer"><span>Cloud/Terraform setup belongs to your technical lead, not this beginner flow.</span><span>08 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-9" data-title="Start your agent" aria-labelledby="title-9" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 6 <span class="divider">/</span> Your agent</span></header>
+      <div class="section-title"><p class="kicker">INSTALL AND SIGN IN INSIDE THE RIGHT WORKSPACE</p><h1 id="title-9">Start your agent.</h1></div>
+      <div class="walkthrough-grid equal">
+        <div><h2>Claude Code in VS Code</h2><ol class="steps"><li>Stay in the <strong>container-connected</strong> window.</li><li>In Extensions, install <strong>Claude Code by Anthropic</strong> (<code>anthropic.claude-code</code>) in the Dev Container when offered.</li><li>Open its panel from the Command Palette and complete the approved interactive sign-in.</li><li>Choose a mode that lets you review edits/commands. Do not enable permission bypass for this test.</li></ol></div>
+        <div><h2>The chat panel is enough</h2><p>Claude is <strong>not installed automatically</strong>. Install its extension while connected to the container; the panel is sufficient for this guide.</p><p>You do not need a terminal-based Claude installation. Ask your technical lead if your team requires one later.</p><p>For Copilot/Codex, install and sign in to the approved client. Ask it to prove that its tools use the container, not your computer's Python.</p><p>Accounts, availability, and skill discovery vary by client. Use normal review/permission prompts while learning.</p></div>
+      </div>
+      <div class="notice"><i data-lucide="shield-check" aria-hidden="true"></i><p>Subscriptions/accounts are not supplied. Complete authentication directly in the UI; never send credentials to the agent.</p></div>
+      <footer class="slide-footer"><span>An installed chat panel is not proof of container execution or skill discovery.</span><span>09 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-10" data-title="The first read-only prompt" aria-labelledby="title-10" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 6 <span class="divider">/</span> First conversation</span></header>
+      <div class="section-title"><p class="kicker">FIRST SESSION: UNDERSTAND, DON'T EDIT</p><h1 id="title-10">Send this read-only prompt.</h1></div>
+      <pre class="prompt">I am new to this project. Read the repository's shared agent instructions,
+    README, standards, handover, and skill index. Do not change any files,
+    commit, push, deploy, or connect to external databases or equipment.
+    Explain the main rules in plain language, including Material 3 UI design,
+    review, bug-fix evidence, documentation, and production restrictions.
+    Use the project's environment check inside the development container.
+    Show the actual result and tell me whether setup is ready. If a tool is
+    unavailable, say so rather than guessing. Wait for me before making changes.</pre>
+      <div class="walkthrough-grid equal" style="margin-top:24px"><div class="checkpoint"><h2><i data-lucide="check-check" aria-hidden="true"></i>You should see</h2><p>The agent explains the rules, shows a real environment result with <strong>/workspace</strong> and <strong>/workspace/.venv</strong>, and makes no edits.</p></div><div><h2>If a skill is unavailable</h2><p>Ask the agent to read the named <strong>SKILL.md</strong> file directly. You do not need to install a large plugin collection to start.</p></div></div>
+      <footer class="slide-footer"><span>A confident policy summary is not proof of tool location; require actual command output.</span><span>10 / 17</span></footer>
+    </section>
+
+        <section class="slide" id="slide-11" data-title="Describe your project" aria-labelledby="title-11" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 7 <span class="divider">/</span> Plan together</span></header>
+      <div class="section-title"><p class="kicker">START WITH THE GOAL, NOT THE CODE</p><h1 id="title-11">Describe what you want to build.</h1></div>
+      <pre class="prompt">I want to build [describe the goal] for [the users]. Use the requirements
+    interview and domain-modeling workflows. Ask me the necessary questions
+    and recommend sensible choices. Do not implement anything until we agree.
+    Help me document the requirements and current project state afterward.</pre>
+      <div class="walkthrough-grid equal" style="margin-top:24px"><div><h2>Confirm the plan</h2><p>Describe the purpose, users, and what success looks like. Answer the agent's questions and approve its summary before allowing implementation.</p><p>New/changed UIs use <strong>Material Design 3</strong> by default.</p></div><div class="checkpoint"><h2><i data-lucide="notebook-pen" aria-hidden="true"></i>Where to see it</h2><p>In Explorer, open <strong>docs &gt; PRD.md</strong> for requirements and <strong>HANDOVER.md</strong> for current state/next steps.</p><p>Ask the agent to replace template-history entries with your project's state, preserving shared policy.</p></div></div>
+      <footer class="slide-footer"><span>Your lead handles technology, reviewer, infrastructure, and access decisions; you are not the template administrator.</span><span>11 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-12" data-title="Create a branch with a menu" aria-labelledby="title-12" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 8 <span class="divider">/</span> Before editing</span></header>
+      <div class="section-title"><p class="kicker">KEEP CHANGES SEPARATE UNTIL REVIEWED</p><h1 id="title-12">Create a branch with a menu.</h1></div>
+      <div class="walkthrough-grid equal"><div><ol class="steps"><li>Click the branch name, usually <strong>main</strong>, in VS Code's bottom-left status bar.</li><li>Choose <strong>Create new branch</strong>. If needed, search <strong>Git: Create Branch</strong> in the Command Palette.</li><li>Name it <strong>setup/project-bootstrap</strong>.</li><li>Confirm that name is visible before allowing the agent to edit project files.</li></ol></div><div class="checkpoint"><h2><i data-lucide="git-branch" aria-hidden="true"></i>You should see</h2><p>The status bar shows <strong>setup/project-bootstrap</strong>, not main.</p><p>Ask the agent to update PRD, handover, and <strong>docs/changes/project-bootstrap.md</strong>.</p><p>The branch keeps your proposed work separate for review; it does not create a second GitHub repository.</p></div></div>
+      <div class="notice"><i data-lucide="triangle-alert" aria-hidden="true"></i><p>If you are still on <strong>main</strong>, stop before committing or publishing changes. Ask your helper if the branch menu is unclear.</p></div>
+      <footer class="slide-footer"><span>No Git branch command needs to be typed.</span><span>12 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-13" data-title="Your first setup PR" aria-labelledby="title-13" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 8 <span class="divider">/</span> Save &amp; review</span></header>
+      <div class="section-title"><p class="kicker">PROJECT SETUP IS A REVIEWED CHANGE</p><h1 id="title-13">Open your first setup PR.</h1></div>
+      <div class="walkthrough-grid equal"><div><h2>In VS Code</h2><ol class="steps"><li>Open <strong>Source Control</strong> (branch icon). Click changed files to review the differences.</li><li>Stage intended files with their <strong>+</strong> buttons; don't include secrets/generated data.</li><li>Enter a message such as <strong>Set up project requirements</strong> and click <strong>Commit</strong>.</li><li>Click <strong>Publish Branch</strong>. Ask for help with identity/sign-in dialogs; never share credentials in chat.</li></ol></div><div><h2>On your project's GitHub page</h2><ol class="steps"><li>Click <strong>Compare &amp; pull request</strong>, or <strong>Pull requests &gt; New pull request</strong>.</li><li>Set base to <strong>main</strong> and compare to <strong>setup/project-bootstrap</strong>.</li><li>Add a description/evidence, create the PR, and request the designated reviewer.</li><li>Wait for passing required checks and independent approval before merge.</li></ol></div></div>
+      <div class="notice"><i data-lucide="triangle-alert" aria-hidden="true"></i><p>Use <strong>Publish Branch</strong>, not Publish to GitHub to create another repository. Don't publish directly on main or bypass review/checks.</p></div>
+      <footer class="slide-footer"><span>An app starts only after it is built; its README will explain the start action. Production remains separately controlled.</span><span>13 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-14" data-title="Come back later" aria-labelledby="title-14" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Step 9 <span class="divider">/</span> Return to work</span></header>
+      <div class="section-title"><p class="kicker">KEEP YOUR WORK AND ENVIRONMENT</p><h1 id="title-14">Come back to the project later.</h1></div>
+      <div class="walkthrough-grid equal"><div><ol class="steps"><li>Save files and close the project window.</li><li>Next time, start <strong>Docker Desktop</strong>.</li><li>Use <strong>VS Code &gt; File &gt; Open Recent</strong> and select the project.</li><li>Choose <strong>Reopen in Container</strong> if needed.</li><li>Check the connection indicator and rerun <strong>Baseline: Run All Quality Checks</strong>.</li></ol></div><div class="checkpoint"><h2><i data-lucide="check-check" aria-hidden="true"></i>Your ready-to-start checks</h2><ul class="detail-list"><li>Correct organization project and folder.</li><li>Dev Container connected; six checks pass.</li><li>Agent reads rules, shows actual results, and waits for approval.</li><li>Requirements agreed before implementation.</li><li>Changes use a reviewed branch/PR.</li><li>Reopening restores passing checks.</li></ul></div></div>
+      <div class="notice"><i data-lucide="folder-lock" aria-hidden="true"></i><p>Don't delete containers/volumes just to close the window. They may hold development data. Ask your helper before reset or deletion operations.</p></div>
+      <footer class="slide-footer"><span>Development setup is not proof of every agent's skill discovery, integrations, remote CI, or production readiness.</span><span>14 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-15" data-title="Help with GitHub and the editor" aria-labelledby="title-15" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Need help? <span class="divider">/</span> GitHub &amp; editor</span></header>
+      <div class="section-title"><p class="kicker">STOP AT THE FIRST UNEXPLAINED ERROR</p><h1 id="title-15">Check the screen, ask for help.</h1></div>
+      <div class="troubleshooting">
+        <article class="trouble-row"><h2>Wrong owner / can't create</h2><p>Ask your lead to create the organization project or arrange transfer. Don't use a personal repo as a workaround.</p></article>
+        <article class="trouble-row"><h2>Repository not found</h2><p>Check the address copied from your new project and browser sign-in; ask your lead about access.</p></article>
+        <article class="trouble-row"><h2>No template button / missing files</h2><p>Ask the template owner to publish the current version and enable template use.</p></article>
+        <article class="trouble-row"><h2>Git missing / no reopen or tasks</h2><p>Ask IT to install Git and restart VS Code. Check Microsoft's Dev Containers extension and the copied template version.</p></article>
+      </div>
+      <footer class="slide-footer"><span>No terminal commands needed; tell your helper which step/button failed.</span><span>15 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-16" data-title="Help with checks and agents" aria-labelledby="title-16" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Need help? <span class="divider">/</span> Setup &amp; sign-in</span></header>
+      <div class="section-title"><p class="kicker">DON'T HIDE OR WORK AROUND A FAILURE</p><h1 id="title-16">Show the error, not your secrets.</h1></div>
+      <div class="walkthrough-grid equal"><div><h2>Environment and checks</h2><ul class="detail-list"><li><strong>Docker/setup fails:</strong> open Docker Desktop, wait for its engine, and share the first Dev Containers log error with IT.</li><li><strong>Check task / Python wrong:</strong> confirm the Dev Container indicator; use Python: Select Interpreter or ask for help.</li><li><strong>No tests in Testing:</strong> use Baseline: Run Tests from Run Task; ask for discovery help.</li></ul></div><div><h2>Agents and saving work</h2><ul class="detail-list"><li><strong>Claude missing/not signed in:</strong> install in the container window and complete browser sign-in.</li><li><strong>Commit/Publish Branch unavailable:</strong> check your branch/Source Control and ask about identity/sign-in. Don't create another personal repo.</li><li><strong>Permission/lockfile error:</strong> ask your lead; don't switch to root, edit locks, or weaken checks.</li></ul></div></div>
+      <div class="notice"><i data-lucide="messages-square" aria-hidden="true"></i><p>Share the step, what you clicked, expected result, and error. A redacted screenshot helps. Find versions in VS Code <strong>Help &gt; About</strong> and Docker's About menu. Never share sign-in codes or tokens.</p></div>
+      <footer class="slide-footer"><span>Your helper can use the optional technical appendix; you do not need to type its commands.</span><span>16 / 17</span></footer>
+    </section>
+
+    <section class="slide" id="slide-17" data-title="Owner and helper appendix" aria-labelledby="title-17" hidden>
+      <header class="slide-header"><img class="logo" src="../../assets/brand/energydrive-logo.png" width="210" height="60" alt="EnergyDrive"><span class="eyebrow">Optional appendix <span class="divider">/</span> Owner/helper only</span></header>
+      <div class="section-title"><p class="kicker">NOT A BEGINNER PREREQUISITE</p><h1 id="title-17">What your owner/helper handles.</h1></div>
+      <div class="walkthrough-grid equal"><div><h2>Publish a ready template</h2><ul class="detail-list"><li>Enable Template repository and merge intended changes through a reviewed PR.</li><li>Verify the current guide, .devcontainer setup, <strong>.vscode/tasks.json</strong>, Compose, locks, and agent instructions are published.</li><li>Copying GitHub never includes local, uncommitted changes.</li><li>Configure actual CODEOWNERS, protections, environments, and approvals per project.</li></ul></div><div><h2>Resolve technical prerequisites</h2><ul class="detail-list"><li>Handle installation/licensing, Linux folder access for UID 10001, and optional Terraform/cloud tooling.</li><li>Do not mount Docker/production credentials merely to make beginner checks work.</li><li>Change dependencies/metadata intentionally through uv, then verify; never hand-edit locks.</li><li>The <a href="../getting-started.md">written guide's helper appendix</a> contains optional technical diagnostics and official Claude setup references.</li></ul></div></div>
+      <div class="notice"><i data-lucide="shield-check" aria-hidden="true"></i><p>Passing setup checks is not proof of every agent's skill discovery, remote CI, real database/gateway behavior, accessibility conformance, or production readiness.</p></div>
+      <footer class="slide-footer"><a class="source-link" href="../getting-started.md">Source: GUI-first Your First Project guide</a><span>17 / 17</span></footer>
+    </section>
+  </main>
+  <nav class="toolbar" aria-label="Presentation controls">
+    <div class="slide-navigation">
+      <button id="previous" class="icon-button" type="button" aria-label="Previous slide" title="Previous slide"><i data-lucide="arrow-left" aria-hidden="true"></i><span class="fallback">&larr;</span></button>
+      <label class="sr-only" for="slide-picker">Select slide</label>
+      <select id="slide-picker">
+        <option value="0">01 Your first project</option><option value="1">02 Words in plain English</option><option value="2">03 Get ready</option><option value="3">04 Create the project</option><option value="4">05 Clone with VS Code</option><option value="5">06 Reopen in Container</option><option value="6">07 Run menu checks</option><option value="7">08 Results and Testing</option><option value="8">09 Open your agent</option><option value="9">10 First conversation</option><option value="10">11 Describe the goal</option><option value="11">12 Create a branch</option><option value="12">13 Save and review</option><option value="13">14 Come back later</option><option value="14">15 GitHub/editor help</option><option value="15">16 Setup/agent help</option><option value="16">17 Owner/helper appendix</option>
+      </select>
+      <button id="next" class="icon-button primary-button" type="button" aria-label="Next slide" title="Next slide"><i data-lucide="arrow-right" aria-hidden="true"></i><span class="fallback">&rarr;</span></button>
+    </div>
+    <div class="presentation-actions"><button id="fullscreen" class="icon-button" type="button" aria-label="Enter fullscreen" title="Enter fullscreen"><i data-lucide="maximize" aria-hidden="true"></i><span class="fallback">&#x26F6;</span></button><button id="print" class="icon-button" type="button" aria-label="Print or save all slides as PDF" title="Print or save all slides as PDF"><i data-lucide="printer" aria-hidden="true"></i><span class="fallback">PDF</span></button></div>
+  </nav>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>

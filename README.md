@@ -12,8 +12,10 @@ review checks responsive behavior, accessibility, and actual task-flow evidence.
 
 ## Start Here
 
-New to the template? Follow [Your First Project](docs/getting-started.md) from GitHub
-creation through cloning, container checks, agent startup, and your first setup PR.
+New to the template? Follow the [GUI-first Your First Project guide](docs/getting-started.md)
+from GitHub buttons through VS Code cloning, container setup, menu-driven checks, agent
+chat, and your first reviewed changes. The beginner path needs no typed terminal commands;
+template-owner and technical instructions are in a separate appendix.
 
 1. Create a GitHub repository from this template and complete `docs/PRD.md`.
 2. Read `docs/standards.md` and `docs/structure.md`; select profiles in the PRD.
@@ -48,6 +50,12 @@ Changes to the lockfile while attached require `uv sync --locked` again. In a co
 terminal use `uv run --locked pytest` or the other uv commands below without Compose.
 Use **Dev Containers: Rebuild Container** after changing the image/container configuration.
 Closing the container window stops its Compose services; named-volume data persists.
+
+In the container window, choose **Terminal > Run Task > Baseline: Run All Quality Checks**
+to check the environment, lint, formatting, types, tests, and dependencies without typing
+commands. Results appear in one panel and finish with a clear readiness message. Individual
+checks are also available as tasks; the Testing view provides a test-results interface.
+Tasks run only when explicitly selected and reject the wrong workspace/user/container.
 
 Opening a folder alone does not silently attach or run commands: Docker, the extension,
 workspace trust, and the user's reopen choice are required. No application, database,
@@ -90,7 +98,7 @@ Use the container interpreter for editor type checking. Formatting fixes use
 | `docs/PRD.md`, `docs/HANDOVER.md`, `GLOSSARY.md` | Requirements, current state, terminology |
 | `docs/deployment.md`, `docs/changes/` | Release controls and per-PR records |
 | `.github/workflows/` | Quality gates and fail-closed deployment scaffold |
-| `.devcontainer/`, `.vscode/extensions.json` | VS Code container lifecycle and host extension recommendation |
+| `.devcontainer/`, `.vscode/` | Container lifecycle, extension recommendation, and menu-driven check tasks |
 | `assets/brand/` | Original EnergyDrive logo and practical reuse notes |
 | `docs/presentations/` | Branded infographic slides, editable browser source, and PDF |
 | `scripts/`, `tests/` | Template checks and their tests |
@@ -106,6 +114,11 @@ The five-slide infographic summarizes the baseline for technical/business audien
 Open [the browser deck](docs/presentations/baseline.html) or
 [the standalone PDF](docs/presentations/baseline.pdf). See
 [presentation notes](docs/presentations/README.md) for editing, offline sharing, and printing.
+
+For the full onboarding walkthrough, open the separate
+[Your First Project infographic](docs/presentations/first-project.html) or
+[17-slide PDF](docs/presentations/first-project.pdf), with beginner GUI steps, expected
+results, chat prompts, troubleshooting, and a separate owner/helper appendix.
 
 ## Releases
 

@@ -42,6 +42,17 @@ personal-owner URL. Latest local documentation changes must be published before 
 GitHub copy can include them. No remote settings, commits, pushes, or new projects were
 created by the agent.
 
+2026-10-07: Added a separate 17-slide Your First Project infographic and PDF. It retains
+all guide commands, the complete read-only agent prompt, checkpoints, troubleshooting,
+and acceptance steps. Shared navigation now supports either the five-slide overview or
+the longer walkthrough; no project creation or operational workflow was executed.
+
+2026-10-07: Reworked Your First Project and its 17-slide infographic for inexperienced
+users: GUI cloning/checks/branches/review, plain-English terms/results, simple agent
+prompts, and owner/helper duties outside the main path. Added explicit VS Code check
+tasks and a container-only runner; no tasks start automatically and no production
+workflow or template-creation action was performed. Re-exported the beginner PDF.
+
 ## Next Actions
 
 - [ ] Complete PRD and assign reviewer, release and operational approvers.
@@ -114,3 +125,17 @@ nine document links, container path/UID/venv, lint/format/types, 12 tests, depen
 and editor diagnostics passed. A human end-to-end test of a new GitHub template copy,
 VS Code GUI, agent sign-in, and reopen behavior remains outstanding. Publish the guide
 through a reviewed PR before expecting it in a new GitHub copy.
+
+Detailed infographic: all 17 slides passed 1440/390/320px layout and logo checks with no
+slide/content/footer overflow. Keyboard End and slide-17 deep linking passed; overview
+regression verified five-slide selection/boundaries. All six guide code/prompt blocks
+(27 lines) remain in HTML and exported PDF. PDF parsing verified 17 numbered 16:9 pages.
+Representative desktop screenshot inspected; these checks do not prove a fresh GitHub
+copy, agent authentication, universal font rendering, or full accessibility conformance.
+
+GUI-first revision: all six checks passed through the task runner (including 12 tests),
+its wrong-location guard was exercised, and shell lint passed. Guide/task/prompt checks
+passed; all 17 slides passed 51 desktop/phone layout checks, and a screenshot was inspected.
+The PDF has 17 numbered 16:9 pages, GUI routes and both prompts, with old CLI/copy-test
+content absent. Actual beginner use of VS Code dialogs/tasks, Testing discovery, GitHub
+creation/PR permissions, and agent sign-in still needs a human end-to-end test.

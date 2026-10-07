@@ -1,32 +1,290 @@
 # Your First Project
 
-Follow this guide once with a disposable project such as **baseline-smoke-test**.
-The result is an independent GitHub repository, a working container/virtual environment,
-and an agent ready to discuss your project. It is not a deployed application.
+This guide is for someone starting a project, not maintaining the template. You can
+follow the main steps by clicking buttons and menus; no terminal commands need to be
+typed. Ask your project lead or IT contact to help with installation or permissions.
 
-The main walkthrough uses Windows and VS Code; container commands use Linux syntax.
-On macOS/Linux the GitHub/editor steps are the same, but use a suitable local clone
-folder. Linux hosts must provide workspace access to the container's UID 10001.
+The result is your own project repository, a ready development environment, and an
+agent helping you plan your application. The template itself is not a running app.
 
-## 0. Prepare The Template And Your Computer
+Prefer the visual walkthrough? Open the separate
+[17-slide infographic](presentations/first-project.html) or
+[standalone PDF](presentations/first-project.pdf). It follows the same GUI-first path,
+with expected results, a beginner-friendly agent prompt, and troubleshooting.
 
-**Template owner:** publish the intended changes through a reviewed PR and merge them
-before this test. A GitHub template copy includes published files, not local/uncommitted
-edits. At https://github.com/EnergyDrive-Systems/BaselineRepo verify the default branch
-contains `.devcontainer/devcontainer.json`, `compose.yaml`, `uv.lock`, `AGENTS.md`,
-`CLAUDE.md`, and this guide. Enable **Settings > General > Template repository** if needed.
-The organization URL was verified reachable; the template setting itself was not inspected.
+The examples use Windows. On a Mac, use Command instead of Ctrl for editor shortcuts
+and select a suitable local folder. Linux users should ask their technical helper to
+check folder permissions before starting. Technical commands are in the optional
+helper appendix at the end, not in the main walkthrough.
 
-**Project user:** install Git, VS Code, and Docker Desktop using your organization's
-approved process. On Windows use Linux containers and complete any required WSL 2 setup.
-Start Docker Desktop; check its organizational licensing. Have internet access for
-images/packages and a GitHub account permitted to create repositories in EnergyDrive-Systems.
+## A Few Words You Will See
 
-In VS Code Extensions, install **Dev Containers** by Microsoft
-(`ms-vscode-remote.remote-containers`). Python on the host is not required.
-Claude/Copilot additionally need their own approved account/subscription; none is supplied.
+| Word | Plain-English Meaning |
+| --- | --- |
+| Repository / repo | The project's files and saved history on GitHub. |
+| Template | A prepared starting set of files for a new project. |
+| Clone | Download a working copy linked to your GitHub project. |
+| Container | An isolated workspace with the project's development tools. |
+| Virtual environment / .venv | The project's own Python environment, set up for you. |
+| Branch | A separate workspace for changes before they are reviewed. |
+| Commit | A named save point in the project's history. |
+| Pull request / PR | A request for someone to review your branch before merging it. |
 
-In a **host PowerShell terminal**, check:
+## 1. Get Your Computer Ready
+
+Ask IT or your project lead to make sure these are installed: **Git**, **VS Code**, and
+**Docker Desktop**. Git runs behind VS Code's buttons; you do not need to learn Git
+commands for this guide. Installation, Windows WSL 2 setup, organizational licensing,
+and administrator-only changes belong to you/IT, not the coding agent.
+
+1. Open **Docker Desktop** from the Start menu and wait until it says the engine is
+   running. On Windows the setup must use Linux containers; ask IT if unsure.
+2. Open **VS Code**, then click **Extensions** (the four-squares icon on the left).
+3. Search **Dev Containers**, select the extension published by **Microsoft**, and click
+   **Install**. Its identifier is `ms-vscode-remote.remote-containers`.
+4. Sign in to GitHub through VS Code's **Accounts** menu when needed. Use your approved
+   organization account. Keep a browser signed in to GitHub too.
+
+**You should see:** Docker is running and Dev Containers is installed in VS Code.
+You do not need to install Python on your computer. Internet is needed for the first
+setup. Claude/Copilot/Codex require their own approved account/subscription; the template
+does not provide those accounts.
+
+## 2. Create Your Project On GitHub
+
+1. Open https://github.com/EnergyDrive-Systems/BaselineRepo.
+2. Choose **Use this template > Create a new repository**. Do not choose Fork or
+   independently initialize an empty repository for this walkthrough.
+3. Select **EnergyDrive-Systems** as the owner, not your personal account. Enter
+   your project name, for example **my-first-project**.
+4. Choose **Private** unless an owner has approved public publication. Leave inclusion
+   of all branches off; start from the template's default branch.
+5. Create the repository and check the address is
+   `https://github.com/EnergyDrive-Systems/my-first-project`.
+
+**You should see:** your project name beside **EnergyDrive-Systems** on GitHub, with
+files such as README.md and a `.devcontainer` folder. If your lead already created the
+project, use the link they provided and continue to Step 3; do not create a duplicate.
+If Use this template is absent, ask the template owner to enable it. If the organization
+is unavailable as an owner, resolve membership/creation permission; do not silently
+publish personally. Your project lead configures ownership, protections, and deployment
+settings separately; you do not need to set those up just to open the project.
+
+## 3. Download And Open The Project In VS Code
+
+1. On **your new project's GitHub page**, click **Code**, choose **HTTPS**, and click the
+   copy icon beside the address. Copy your project, not BaselineRepo.
+2. In VS Code, choose **View > Command Palette** (or Ctrl+Shift+P). This is a menu-search
+   box, not a terminal. Search **Git: Clone** and select it.
+3. Paste the copied address and press Enter. If asked, sign in using the browser flow.
+4. Choose a parent folder such as `C:\repos` using the folder picker. You can create
+   that folder through File Explorer first. VS Code creates a project folder inside it.
+5. When cloning finishes, click **Open** or **Open in New Window** when prompted.
+
+**You should see:** the project folder and README in VS Code's **Explorer** (the files
+icon). Source Control should initially have no changed files. Check the project name
+matches the GitHub page you copied; ask your helper if you are unsure about the connection.
+
+Do not clone into an existing folder with the same name. Use the approved sign-in flow;
+never put passwords/tokens in the project address, files, or agent messages.
+
+## 4. Open The Prepared Development Environment
+
+1. Review the repository setup, then trust the workspace if appropriate.
+2. Accept **Reopen in Container**. If no prompt appears, press **Ctrl+Shift+P**, search
+   for **Dev Containers: Reopen in Container**, and select it.
+3. Wait for the initial image build, dependency sync, and editor connection. This can
+   take several minutes on a new machine. Read build/setup errors rather than retrying blindly.
+4. Keep this reopened window for project work. There is no need to open or type into
+   a terminal to complete the main guide.
+
+**You should see:** the bottom-left remote indicator identifies a **Dev Container**.
+Python, Pylance, and Ruff install inside it; accept installation prompts if shown.
+The project's Python environment and locked dependencies are prepared automatically.
+If the window is still local or setup shows an error, stop and ask for help before editing.
+
+Opening a folder alone does not silently attach or launch an app. No database, gateway,
+Terraform operation, application server, or production connection starts here.
+
+## 5. Check That Setup Worked Using Menus
+
+1. In the container-connected window, choose **Terminal > Run Task**. You are selecting
+   a named action, not typing a command. If the menu differs, open the Command Palette
+   and choose **Tasks: Run Task**.
+2. Select **Baseline: Run All Quality Checks**.
+3. A results panel opens and each check runs. Leave it to finish; you do not need to
+   type into this panel. The dependency audit needs internet access.
+4. Confirm the checks finish successfully. The six results end in **PASS** messages:
+   environment, lint, format, types, tests, and audit.
+   The final message is **All six quality checks passed. Your development setup is ready.**
+
+**You should see:** **Environment ready**, Python 3.13.x, and `/workspace/.venv` in the
+environment result. Types have zero errors, tests pass (the starter currently has 12),
+and the audit has no unresolved findings. A missing `src` message before application
+code exists is normal if the type check still reports zero errors.
+
+The check tasks do not fix files or deploy anything. They require the approved container;
+a location/user mismatch fails rather than silently running checks on the host.
+
+To rerun just one check, return to **Run Task** and select it, for example
+**Baseline: Run Tests**. For a test-results view, click **Testing** (the beaker icon).
+If hidden, use **View > Open View**, search Testing, and open it. Click its Run All Tests
+button. If tests do not appear, run **Python: Configure Tests** from the Command Palette,
+choose pytest and the tests folder, or ask your helper. The menu task still works.
+
+If the Python interpreter is wrong, open the Command Palette, choose **Python: Select
+Interpreter**, then select `/workspace/.venv/bin/python` (use Enter interpreter path
+if needed). You do not need to find a Windows `.venv` folder in File Explorer.
+
+If any check fails, note which one and show the results to your helper. Do not disable
+checks or change dependency versions to hide the failure. Terraform/cloud setup is not
+part of this beginner flow; your technical lead handles it when required.
+
+## 6. Open Claude Code Or Your Approved Agent
+
+For the simplest Claude workflow, remain in the **container-connected VS Code window**.
+Open Extensions, search **Claude Code** by Anthropic (`anthropic.claude-code`), and install
+it in the Dev Container when that option is offered. Open its panel from the Command
+Palette and sign in through the approved interactive flow. Complete sign-in directly
+in the UI, never by giving credentials to an agent. Use a permission mode that lets
+you review edits/actions while learning; do not enable permission bypass.
+
+The template does not install Claude automatically. The extension bundles its own
+runtime for the panel but does not make a standalone `claude` executable available
+on the terminal PATH. The panel is sufficient for this guide. A terminal-based Claude
+installation is optional work for your technical lead, not a beginner prerequisite.
+
+For Copilot/Codex, install and sign in to the approved client in the same workspace.
+Ask the agent to confirm its execution tools use the container, not host Python.
+Accounts, availability, permissions, and native skill discovery vary by client.
+
+Send this first **read-only** prompt:
+
+```text
+I am new to this project. Read the repository's shared agent instructions,
+README, standards, handover, and skill index. Do not change any files,
+commit, push, deploy, or connect to external databases or equipment.
+Explain the main rules in plain language, including Material 3 UI design,
+review, bug-fix evidence, documentation, and production restrictions.
+Use the project's environment check inside the development container.
+Show the actual result and tell me whether setup is ready. If a tool is
+unavailable, say so rather than guessing. Wait for me before making changes.
+```
+
+**You should see:** the agent reports `/workspace` and `/workspace/.venv`, reads the policy,
+and makes no edits. Claude's root entry point imports `AGENTS.md`; Copilot/Codex have
+their own entry points. Do not mistake a confident summary for proof of tool location.
+If native skill invocation is unavailable, ask it to read the named SKILL.md files
+directly; no bulk plugin installation is necessary for this test.
+
+## 7. Describe What You Want To Build
+
+Tell the agent your goal, who will use the project, and what success looks like. For example:
+
+```text
+I want to build [describe the goal] for [the users]. Use the requirements
+interview and domain-modeling workflows. Ask me the necessary questions
+and recommend sensible choices. Do not implement anything until we agree.
+Help me document the requirements and current project state afterward.
+```
+
+Open **Explorer > docs > PRD.md** to see the requirements document, and HANDOVER.md
+for current state and next steps. Ask the agent to replace inherited template-history
+entries with your project's state, without rewriting shared policy. Confirm its summary
+before allowing implementation. New/changed UIs use Material Design 3 by default.
+
+Your project lead selects technologies, configures reviewers/protections, and handles
+infrastructure/access decisions. You are not expected to administer those settings.
+
+## 8. Save Changes For Review Using The GUI
+
+Before the agent edits project files:
+
+1. Click the branch name (usually **main**) in VS Code's bottom-left status bar.
+2. Choose **Create new branch** and name it **setup/project-bootstrap**. Alternatively,
+   search **Git: Create Branch** in the Command Palette.
+3. Confirm the status bar now shows that branch, not main. Ask the agent to update PRD,
+   handover, and `docs/changes/project-bootstrap.md`, then review its changes.
+4. Open **Source Control** (the branch icon). Click each changed file to see its diff.
+   Stage only intended files using the **+** buttons. Do not stage secrets or generated data.
+5. Enter a short commit message, such as **Set up project requirements**, then click
+   **Commit**. If asked for Git identity/sign-in, get help configuring your own account.
+6. Click **Publish Branch** when available. Do not choose Publish to GitHub to create
+   another repository: this project already has its GitHub destination.
+7. Return to your project's page on GitHub. Use **Compare & pull request**, or
+   **Pull requests > New pull request**. Set base to main and compare to your setup branch.
+8. Complete the PR description with evidence, create the PR, and request the designated
+   reviewer. Wait for required checks and independent approval before merge.
+
+**You should see:** a PR in the correct organization project, with your setup branch
+compared to main. Do not commit/publish directly on main, bypass checks, or merge your
+own changes without the required review. Ask your lead if Publish Branch is unavailable
+or the sign-in/identity dialogs are confusing; do not put credentials in chat.
+
+There is no application to run until one is built. Your project README should eventually
+describe its own start button/task, local address, and fixtures. Development setup alone
+does not permit production deployment; [deployment guidance](deployment.md) still applies.
+
+## 9. Come Back To The Project Later
+
+1. Save files and close the project window. Do not delete containers/volumes to close it.
+2. Next time, start Docker Desktop and use **VS Code > File > Open Recent** to select
+   the project. If needed, choose **Reopen in Container** again.
+3. Check the Dev Container indicator and rerun **Baseline: Run All Quality Checks**.
+
+**You should see:** the same files and project environment, with passing checks again.
+Dependencies resync automatically. Ask for help before any reset/delete-volume operation.
+
+## If Something Goes Wrong
+
+Stop at the first unexplained error. Tell your helper the step, what you clicked, what
+you expected, and what appeared instead. A screenshot is useful; remove credentials
+and private data before sharing it. Find VS Code's version in **Help > About** and Docker's
+version in Docker Desktop's About menu if requested. Do not post sign-in codes or tokens.
+
+
+| Symptom | Check / Next Action |
+| --- | --- |
+| Wrong owner / cannot create project | Ask your lead to create it under EnergyDrive-Systems or arrange transfer. Do not use a personal repo as a workaround. |
+| Clone says repository not found | Check the address copied from your new project and browser sign-in; ask your lead about access. |
+| No Use this template / missing files | Ask the template owner to publish the current version and enable template use. |
+| VS Code says Git is missing | Ask IT to install Git, then restart VS Code. |
+| No Reopen in Container / no tasks | Check Microsoft's Dev Containers extension and that the current template was copied. |
+| Docker or container setup fails | Open Docker Desktop and wait for the engine; use the Dev Containers log link and share the first error with IT. |
+| Check task fails / Python looks wrong | Confirm the Dev Container indicator; use Python: Select Interpreter or ask your helper. No commands need to be typed. |
+| Tests are not shown in Testing | Use Baseline: Run Tests from Run Task; ask for test-discovery help if needed. |
+| Claude missing / not signed in | Install Claude Code in the container window and complete its browser sign-in. |
+| Commit / Publish Branch unavailable | Confirm the setup branch and Source Control state; ask your helper about identity/sign-in. Do not create a second personal repository. |
+| Permission denied / lockfile error | Stop and ask your technical lead. Do not switch to root, edit lockfiles, or weaken checks. |
+
+## Ready-To-Start Checklist
+
+- [ ] The GitHub project belongs to EnergyDrive-Systems and has the expected name.
+- [ ] VS Code shows the right folder and a Dev Container connection.
+- [ ] All six menu-driven checks pass; Testing can show the starter tests.
+- [ ] The agent reads shared instructions, shows real setup results, and waits for approval.
+- [ ] Project requirements are agreed before implementation.
+- [ ] Changes go through a branch and reviewed PR, not directly onto main.
+- [ ] Reopening the project restores its environment and passing checks.
+
+This confirms development setup, not every agent's native skill discovery, database/
+gateway integration, remote CI, accessibility conformance, or production readiness.
+
+## Template Owner / Technical Helper Appendix
+
+Beginners can stop above. The owner ensures the published template has the current
+guide, `.devcontainer/devcontainer.json`, `.vscode/tasks.json`, `compose.yaml`, `uv.lock`,
+`AGENTS.md`, and `CLAUDE.md`. Enable **Settings > General > Template repository** if needed.
+Merge intended template changes through a reviewed PR before asking users to copy it;
+uncommitted local edits do not appear on GitHub. Configure real CODEOWNERS, protections,
+environments, and approvals per project; none is established by copying files.
+
+Linux workspace access must accommodate UID 10001. Installation and cloud/Terraform setup
+are helper responsibilities. Do not mount the Docker socket or production credentials
+to make beginner checks work. If project metadata/dependencies change intentionally,
+regenerate locks through uv and rerun checks; never edit `uv.lock` manually.
+
+Optional **host PowerShell** diagnostics:
 
 ```powershell
 git --version
@@ -34,71 +292,7 @@ docker version
 docker compose version
 ```
 
-**Pass:** Git resolves, Docker reports both client and server, and Compose reports v2.
-If Docker's server is unavailable, fix/start Docker before continuing. Administrator-only
-installation or OS changes belong to the user/IT team, not the coding agent.
-
-## 1. Create Your Project On GitHub
-
-1. Open https://github.com/EnergyDrive-Systems/BaselineRepo.
-2. Choose **Use this template > Create a new repository**. Do not choose Fork or
-   independently initialize an empty repository for this walkthrough.
-3. Select **EnergyDrive-Systems** as the owner, not your personal account. Enter
-   **baseline-smoke-test** as the name (or another available project name).
-4. Choose **Private** unless an owner has approved public publication. Leave inclusion
-   of all branches off; start from the template's default branch.
-5. Create the repository and check the address is
-   `https://github.com/EnergyDrive-Systems/baseline-smoke-test`.
-
-**Pass:** your project has its own GitHub address and includes the template files.
-If Use this template is absent, ask the template owner to enable it. If the organization
-is unavailable as an owner, resolve membership/creation permission; do not silently
-publish personally. Repository secrets, review ownership, and protection/environment
-settings must be configured for the new project; do not assume they copied with files.
-
-## 2. Clone The New Project And Open VS Code
-
-On **your new project's page**, choose **Code > HTTPS** and copy its URL. Clone that
-repository, not BaselineRepo. In a host PowerShell terminal:
-
-```powershell
-New-Item -ItemType Directory -Force C:\repos | Out-Null
-Set-Location C:\repos
-git clone https://github.com/EnergyDrive-Systems/baseline-smoke-test.git
-Set-Location baseline-smoke-test
-git remote -v
-git status --short --branch
-code .
-```
-
-Replace baseline-smoke-test with the name you selected. Do not reuse an existing folder
-with that name. Authenticate using GitHub's approved browser/credential flow; do not
-paste passwords or tokens into commands, documentation, or agent chats.
-
-**Pass:** origin fetch/push both name your new organization project, and the worktree
-is initially clean. If `code` is not found, open VS Code and use **File > Open Folder**
-to open the cloned folder; no re-clone is needed.
-
-## 3. Reopen In The Development Container
-
-1. Review the repository setup, then trust the workspace if appropriate.
-2. Accept **Reopen in Container**. If no prompt appears, press **Ctrl+Shift+P**, search
-   for **Dev Containers: Reopen in Container**, and select it.
-3. Wait for the initial image build, dependency sync, and editor connection. This can
-   take several minutes on a new machine. Read build/setup errors rather than retrying blindly.
-4. Open **Terminal > New Terminal** in the reopened window.
-
-**Pass:** VS Code's remote indicator identifies a Dev Container, and the terminal is
-inside Linux at `/workspace`, not a host PowerShell prompt at `C:\repos\...`.
-The startup hooks automatically run `uv sync --locked`; Python/Pylance/Ruff are configured
-as container extensions. Accept their installation if your editor prompts for it.
-
-Opening a folder alone does not silently attach or launch an app. No database, gateway,
-Terraform operation, application server, or production connection starts here.
-
-## 4. Verify The Environment And Baseline Checks
-
-Run these in the **container terminal**:
+Optional **container terminal** diagnostics/checks (the tasks already run these tools):
 
 ```sh
 pwd
@@ -109,134 +303,12 @@ uv run --locked ruff check .
 uv run --locked ruff format --check .
 uv run --locked pyright
 uv run --locked pytest
-```
-
-**Pass:** pwd is `/workspace`; UID is `10001`; Python is 3.13.x with prefix
-`/workspace/.venv`. The executable may end in `python` or `python3`; both are valid
-when using that virtual environment. Ruff and Pyright pass, and the unchanged template
-currently has 12 passing tests. Pyright may mention missing `src` before application
-code exists; it must still report zero errors. Future template versions may add tests.
-
-Use **Python: Select Interpreter** in the Command Palette if VS Code selected another
-interpreter; choose `/workspace/.venv/bin/python`. The named-volume venv is not a host
-Windows environment and may not appear in host Explorer.
-
-For the dependency audit, also run:
-
-```sh
 sh scripts/audit_dependencies.sh
 ```
 
-**Pass:** no unresolved audit findings. Do not disable checks or update the lockfile
-just to hide a failure; record it and ask the template owner to investigate.
-
-Terraform is optional for the first smoke test. Its documented commands run from a
-**host terminal** through the separate Compose service; Docker is not mounted into
-the development container. See [the root README](../README.md) for those commands.
-
-## 5. Start Claude Code Or Another Agent
-
-For the simplest Claude workflow, remain in the **container-connected VS Code window**.
-Open Extensions, search **Claude Code** by Anthropic (`anthropic.claude-code`), and install
-it in the Dev Container when that option is offered. Open its panel from the Command
-Palette and sign in through the approved interactive flow. Complete sign-in directly
-in the UI, never by giving credentials to an agent. Use a permission mode that lets
-you review edits/commands for this first test; do not enable permission bypass.
-
-The template does not install Claude automatically. The extension bundles its own
-runtime for the panel but does not make a standalone `claude` executable available
-on the terminal PATH. If your team wants CLI usage, arrange an approved, versioned
-container installation using the [official container guide](https://code.claude.com/docs/en/devcontainer);
-do not assume a host CLI installation exists inside the container.
-
-For Copilot/Codex, install and sign in to the approved client in the same workspace.
-Confirm its terminal/execution tools use the container and uv, not host Python.
-Accounts, availability, permissions, and native skill discovery vary by client.
-
-Send this first **read-only** prompt:
-
-```text
-Read CLAUDE.md if applicable, AGENTS.md, README.md, docs/standards.md,
-docs/HANDOVER.md, and .agents/skills/README.md. Do not edit, commit, push,
-deploy, or connect to external databases/equipment.
-Summarize the rules for containers/venv, Material 3 UI, two-part review,
-bug-fix evidence, documentation, and production restrictions.
-Run pwd and uv run --locked python -c "import sys; print(sys.prefix)"
-and report where execution actually occurs. List any unavailable tools.
-```
-
-**Pass:** the agent reports `/workspace` and `/workspace/.venv`, reads the shared policy,
-and makes no edits. Claude's root entry point imports `AGENTS.md`; Copilot/Codex have
-their own entry points. Do not mistake a confident summary for proof of tool location.
-If native skill invocation is unavailable, ask it to read the named SKILL.md files
-directly; no bulk plugin installation is necessary for this test.
-
-## 6. Check Reopening And Record Your Test
-
-Use **Dev Containers: Reopen Folder Locally**, close that project window, then open the
-same folder and reopen in the container again. Repeat the Python prefix check and pytest.
-Dependencies resync from the lockfile and the named-volume environment persists.
-Do not run `docker compose down -v` as routine troubleshooting: it deletes volumes.
-
-Record OS, VS Code/Docker versions, cloned URL and commit (`git rev-parse HEAD`), the
-step that failed, exact error, and which commands passed. Redact credentials/private data
-before sharing output. Use this acceptance checklist:
-
-- [ ] New repository owner/address is EnergyDrive-Systems/my-project.
-- [ ] Required template files are present and clone origin is correct.
-- [ ] Container opens as developer at /workspace and .venv is selected.
-- [ ] Lint, formatting, types, tests, and dependency audit pass.
-- [ ] Agent reads shared guidance and proves its container execution location.
-- [ ] Closing/reopening restores the working environment.
-
-A successful local smoke test does not prove remote CI, client discovery in every agent,
-real database/gateway behavior, or production release readiness.
-
-## 7. Begin Real Project Work Through A PR
-
-From the container terminal, create a project setup branch:
-
-```sh
-git switch -c setup/project-bootstrap
-```
-
-Ask the agent to read the grill-with-docs, grilling, and domain-modeling skill files,
-then interview you about the actual project's purpose, users, active technologies,
-acceptance criteria, and constraints. Confirm shared understanding before implementation.
-Fill [PRD](PRD.md), replace inherited template-history handover entries with your project's
-current state, and update [handover](HANDOVER.md). Preserve shared policy rather than
-rewriting it as application-specific instructions. UI work defaults to Material 3.
-
-Replace example CODEOWNERS, configure project protections/owners with the responsible
-human, and add `docs/changes/project-bootstrap.md`. Add application directories only when
-real code/resources exist. Renaming the Python project requires intentional lockfile
-regeneration (`uv lock`) followed by locked sync and verification; it is not needed for
-the smoke test. Never edit `uv.lock` manually.
-
-Review the changes, commit on the setup branch, and publish that branch through VS Code
-Source Control or your approved Git workflow. Open a PR to main; do not publish directly
-to main. If Git asks for an author identity or authentication, configure your own approved
-identity/credential flow, not the template author's. Remote CI and documentation checks
-must pass before review/merge. Test results belong in the PR's change record.
-
-There is no app to run until it is implemented. Specify its startup command, port,
-runtime container, and integration fixtures in the project PRD/README. Do not enable
-deployment simply because the environment smoke test passed; follow
-[deployment guidance](deployment.md) and keep production adapters blocked until ready.
-
-## Quick Troubleshooting
-
-| Symptom | Check / Next Action |
-| --- | --- |
-| Wrong GitHub owner | Stop before cloning; create under the organization or arrange an approved transfer. |
-| Clone reports not found | Confirm the project's exact URL and your account's access; private repositories may look absent. |
-| Missing template files | Check the template default branch and publish/merge the intended version first. |
-| No reopen command | Install Microsoft's Dev Containers extension and review workspace trust. |
-| Docker connection/build error | Check Docker Desktop is running with Linux containers; inspect the Dev Containers log and network access. |
-| Python prefix is not /workspace/.venv | Use the container terminal and uv; correct the editor interpreter. |
-| Linux permission denied | Resolve workspace access for UID 10001 with IT/project owners; do not switch to root or weaken permissions blindly. |
-| Lockfile mismatch | Confirm the correct published project version; review intended dependency changes and regenerate through uv if approved. |
-| Claude is missing or not logged in | Install the extension in the container window and complete its own sign-in; terminal CLI is separate. |
-| Git push unavailable inside container | Use the approved host Git/VS Code authentication workflow; never embed tokens in remote URLs. |
-
-For this first test, stop at the first unexplained failure and share its step/result.
+Expect /workspace, UID 10001, and /workspace/.venv; python/python3 aliases are both valid
+when resolving to that environment. For optional Terraform tooling, use the separate
+Compose service from the host as documented in [the root README](../README.md).
+The GUI installation flow for Claude is covered in its
+[official VS Code guide](https://code.claude.com/docs/en/vs-code); optional versioned CLI
+installation belongs in the approved container, not as a presumed host dependency.

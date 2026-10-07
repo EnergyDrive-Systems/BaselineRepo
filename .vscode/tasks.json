@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Baseline: Run All Quality Checks",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "all"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    },
+    {
+      "label": "Baseline: Check Environment",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "environment"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    },
+    {
+      "label": "Baseline: Check Code Quality",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "lint"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    },
+    {
+      "label": "Baseline: Check Formatting",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "format"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    },
+    {
+      "label": "Baseline: Check Types",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "types"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    },
+    {
+      "label": "Baseline: Run Tests",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "tests"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    },
+    {
+      "label": "Baseline: Audit Dependencies",
+      "type": "process",
+      "command": "sh",
+      "args": ["scripts/run_dev_check.sh", "audit"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "runOptions": { "instanceLimit": 1 },
+      "problemMatcher": []
+    }
+  ]
+}
