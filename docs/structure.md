@@ -15,6 +15,7 @@ trees, `misc/`, duplicate standards, or application frameworks before they are n
 | `infra/terraform/modules/<name>/` | Components with demonstrated reuse |
 | `infra/terraform/environments/<name>/` | Independent environment roots/state boundaries |
 | `scripts/` | Repository automation, not business logic |
+| `assets/brand/` | Reusable company artwork and provenance/usage notes, not project exports |
 | `docs/` | Requirements, standards, handover, release guidance, diagrams, decisions |
 | `docs/changes/` | One descriptive record per PR |
 | `.github/` | CI/CD, ownership, contributor entry points |

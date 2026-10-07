@@ -1,8 +1,14 @@
 # Organization Development Baseline
 
+![EnergyDrive logo](assets/brand/energydrive-logo.png)
+
 Starter template for Python services, Ignition Perspective, BigQuery, Cloud SQL
 for PostgreSQL, and optional SQL Server. Use combined or separate projects without
 copying different versions of the rules. No application or infrastructure is deployed.
+
+All new and changed UIs follow Material Design 3 principles by default, including
+Ignition Perspective. Agents automatically load `docs/profiles/ui.md` for UI work;
+review checks responsive behavior, accessibility, and actual task-flow evidence.
 
 ## Start Here
 
@@ -76,11 +82,12 @@ Use the container interpreter for editor type checking. Formatting fixes use
 | `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md` | Shared agent rules and client entry points |
 | `.agents/skills/` | Reviewed interview, implementation, review, runtime, and readiness workflows |
 | `docs/standards.md`, `docs/structure.md` | Engineering rules and repository layout |
-| `docs/profiles/` | Python, Ignition, database, and Terraform rules |
+| `docs/profiles/` | Material 3 UI, Python, Ignition, database, and Terraform rules |
 | `docs/PRD.md`, `docs/HANDOVER.md`, `GLOSSARY.md` | Requirements, current state, terminology |
 | `docs/deployment.md`, `docs/changes/` | Release controls and per-PR records |
 | `.github/workflows/` | Quality gates and fail-closed deployment scaffold |
 | `.devcontainer/`, `.vscode/extensions.json` | VS Code container lifecycle and host extension recommendation |
+| `assets/brand/` | Original EnergyDrive logo and practical reuse notes |
 | `scripts/`, `tests/` | Template checks and their tests |
 | `Dockerfile`, `compose.yaml`, `pyproject.toml`, `uv.lock` | Isolated development tooling |
 | `infra/terraform/` | Infrastructure version baseline; no provisioned resources |

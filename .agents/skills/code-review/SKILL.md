@@ -11,6 +11,10 @@ Paths are repository-relative. Read `AGENTS.md`, `docs/standards.md`,
 `docs/HANDOVER.md`, and the applicable `docs/profiles/` files. Identify the originating
 issue, PRD, or approved acceptance criteria. Review is read-only unless fixes are requested.
 
+For UI changes, automatically read `docs/profiles/ui.md`. Material Design 3 is the
+default; check platform adaptations, accessibility, responsive/state coverage, and
+actual interaction evidence rather than judging visual appearance alone.
+
 ## Workflow
 
 1. Resolve the comparison base and head to commits and record both. Use the merge-base

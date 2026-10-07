@@ -22,6 +22,15 @@ recommendation. Creation/start syncs the container `.venv` automatically; interp
 and pytest settings target it. The user still selects Reopen in Container. No app or
 external service auto-start tasks were copied from the reference project.
 
+2026-10-07: Located the original EnergyDrive PNG in the RappCloud report assets and
+added it under `assets/brand/` for project reuse. README displays it; usage notes record
+provenance and resolution limits. No report code or unrelated project files were imported.
+
+2026-10-07: Added the mandatory Material Design 3 UI profile and default agent routing.
+Implementation, review, and Perspective skills plus the PR template require UI evidence.
+Perspective adapts the principles through native resources; existing safety/access rules
+and unrelated contributor changes remain unchanged.
+
 ## Next Actions
 
 - [ ] Complete PRD and assign reviewer, release and operational approvers.
@@ -71,3 +80,12 @@ remain unverified; no active editor window was reopened by the agent.
 Runtime checks also confirmed the configured `.venv` interpreter, UID 10001, and installed
 pytest. The CLI-created validation container was stopped; existing named volumes were
 retained. Reopen in Container starts the environment again.
+
+Brand asset: visual identity, original/copy SHA256 equality, 210 x 60 image decoding,
+opaque alpha, and README image references were verified. A higher-resolution/vector
+brand master is not supplied by the reviewed archive.
+
+Material 3: 31 policy/routing checks, edited-skill YAML/reference validation in the
+container `.venv`, and editor diagnostics passed. Existing Security policy was verified
+unchanged against Git. Actual UI usability/accessibility requires per-project runtime
+evidence; these checks validate instructions, not rendered interface conformance.

@@ -12,6 +12,10 @@ Paths are repository-relative. Read `AGENTS.md`, `README.md`, `docs/standards.md
 and acceptance criteria. For unresolved design, use `grill-with-docs`, loading `grilling`
 and `domain-modeling` separately, with a read-file fallback when Skill tools are absent.
 
+For any UI creation or change, automatically read `docs/profiles/ui.md` before coding
+and use Material Design 3 principles. Do not ask users to restate this default. Map
+tokens/components to the chosen platform, including native Perspective resources.
+
 ## Workflow
 
 1. Inspect the nearest owning implementation and test boundary. Preserve contributor
@@ -25,6 +29,8 @@ and `domain-modeling` separately, with a read-file fallback when Skill tools are
    types, tests, and dependency/configuration checks; do not weaken failing gates.
 4. Validate contracts and failure paths on the actual target runtime where necessary.
    Distinguish fixtures/static checks from real database, gateway, and integration evidence.
+   For UI work, check Material 3 tokens/states, responsive layouts, accessibility, and
+   primary task flows; record screenshots and interaction evidence per the UI profile.
 5. Update affected PRD/architecture/README sections, handover, and this PR's change record.
    Use `code-review` for separate standards and requirements conclusions before delivery.
    Read another skill's file directly when invocation tools are unavailable.

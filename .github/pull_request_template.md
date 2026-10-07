@@ -26,6 +26,13 @@ Link changed docs and explain unaffected sections.
 Actual commands/results and what remains unverified. Distinguish CPython/container
 checks from real Ignition, database, infrastructure, and operational acceptance.
 
+For UI changes (otherwise state Not applicable):
+
+- [ ] Applied Material Design 3 and `docs/profiles/ui.md`, or linked an approved exception.
+- [ ] Recorded responsive screenshots and actual interaction/state checks.
+- [ ] Checked keyboard/focus, labels, contrast, touch targets, and scaling/accessibility.
+- [ ] Documented platform limitations and preserved SCADA alarm/control conventions.
+
 ## Bug-Fix Evidence
 
 For bug fixes, complete the following; otherwise state Not applicable.

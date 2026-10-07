@@ -4,6 +4,11 @@ Initial target: **Ignition 8.3.10**, vendor stable release verified on 2026-10-0
 Record gateway, Perspective, Designer, and third-party module versions in PRD;
 Designer Launcher versions do not identify the gateway runtime. Review upgrades.
 
+UI work must also follow `docs/profiles/ui.md`: Material Design 3 is the default for
+Perspective views and interactions. Adapt it through native components, shared style
+classes, reusable views, and supported theme tokens. Verify platform limitations on the
+gateway/browser; visual styling does not replace alarm semantics or operational safeguards.
+
 - Dev/test gateways are containerized, with persistent volumes, approved licensing,
   runtime secrets, local-only access, and no production device connections. Pin the
   vendor image digest; never use floating `latest`.

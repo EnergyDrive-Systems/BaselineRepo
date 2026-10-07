@@ -11,6 +11,11 @@ Paths are repository-relative. Read `AGENTS.md`, `docs/standards.md`,
 `docs/profiles/ignition.md`, `docs/structure.md`, and `docs/HANDOVER.md`.
 Record actual gateway/module/Designer versions and confirm a safe dev/test gateway.
 
+For view or interaction changes, automatically read `docs/profiles/ui.md` and apply
+Material Design 3 through native components, shared style classes, reusable views,
+and supported theme tokens. Preserve alarm/safety conventions and test accessibility;
+do not claim native components automatically provide full M3 conformance.
+
 ## Workflow
 
 1. Start at the affected resource and expected behavior. Prefer native bindings,

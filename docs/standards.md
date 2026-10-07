@@ -16,6 +16,9 @@
   versions. Intentionally update them and scan dependencies, images, and secrets.
 - Service containers run non-root, handle termination, provide meaningful health
   checks, and keep mutable data outside images. Tooling containers are not services.
+- All new and changed UIs use Material Design 3 principles by default. The UI profile
+  in `docs/profiles/ui.md` is mandatory for UI work, not an optional technology choice.
+  Apply its shared tokens, responsive interactions, accessibility, and acceptance checks.
 
 ## Change Control
 

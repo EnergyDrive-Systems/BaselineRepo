@@ -15,6 +15,10 @@ rules for Claude Code, Codex, GitHub Copilot, and human contributors.
   without a concrete need. Do not overwrite unrelated contributor changes.
 - Keep Python typed, linted, tested, and dependency-locked. Prefer existing
   libraries and Ignition built-ins over custom implementations.
+- For any UI creation or change, automatically read `docs/profiles/ui.md` and apply
+  Material Design 3 principles by default, including in Ignition Perspective. Do not
+  wait for the user to request it. Verify usability/accessibility and document platform
+  adaptations; a different design system requires an approved exception.
 - Never place secrets, sensitive exports, Terraform state, or production backups
   in Git, logs, prompts, skills, or documentation.
 - Agents have no production credentials. No agent-executed production writes,
