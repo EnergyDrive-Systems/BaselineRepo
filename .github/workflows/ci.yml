@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Quality
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: docker compose build dev
+      - run: docker compose run --rm dev uv sync --locked
+      - run: docker compose run --rm dev uv run --locked ruff check .
+      - run: docker compose run --rm dev uv run --locked ruff format --check .
+      - run: docker compose run --rm dev uv run --locked pyright
+      - run: docker compose run --rm dev uv run --locked pytest
+      - run: docker compose run --rm dev sh scripts/audit_dependencies.sh
+
+  documentation:
+    name: Documentation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - run: docker compose build dev
+        if: github.event_name == 'pull_request'
+      - name: Require updated docs and PR change record
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: >-
+          docker compose run --rm dev uv run --locked python
+          scripts/check_pr_docs.py "$BASE_SHA" "$HEAD_SHA"
+      - name: Documentation gate applies at PR review
+        if: github.event_name != 'pull_request'
+        run: echo 'PR documentation was checked before merge; no PR diff exists in this event.'
+
+  infrastructure:
+    name: Infrastructure
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: docker compose run --rm terraform fmt -check -recursive
+      - name: Validate all Terraform roots without backend access
+        run: |
+          set -eu
+          while IFS= read -r root; do
+            docker compose run --rm --workdir "/workspace/$root" terraform init -backend=false
+            docker compose run --rm --workdir "/workspace/$root" terraform validate
+          done < <(find infra/terraform -name '*.tf' -not -path '*/.terraform/*' -printf '%h\n' | sort -u)
+
+  security:
+    name: Security
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Scan Git history for secrets
+        run: >-
+          docker run --rm -v "$PWD:/workspace:ro"
+          -e GIT_CONFIG_COUNT=1 -e GIT_CONFIG_KEY_0=safe.directory -e GIT_CONFIG_VALUE_0=/workspace
+          ghcr.io/gitleaks/gitleaks:v8.24.2@sha256:b5918eb91b8d2473cec722f066abb4352e4ffdc4ec9f4283ec143aba9ec9ebc4
+          git /workspace --redact
+      - name: Validate workflows
+        run: >-
+          docker run --rm -v "$PWD:/workspace:ro" -w /workspace
+          rhysd/actionlint:1.7.7@sha256:887a259a5a534f3c4f36cb02dca341673c6089431057242cdc931e9f133147e9
+          -color .github/workflows/ci.yml .github/workflows/deploy.yml
+      - run: docker compose build dev
+      - name: Report all high and critical image findings
+        run: >-
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock
+          aquasec/trivy:0.68.2@sha256:05d0126976bdedcd0782a0336f77832dbea1c81b9cc5e4b3a5ea5d2ec863aca7
+          image --exit-code 0 --severity HIGH,CRITICAL baselinerepo-dev
+      - name: Scan development image
+        run: >-
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock
+          aquasec/trivy:0.68.2@sha256:05d0126976bdedcd0782a0336f77832dbea1c81b9cc5e4b3a5ea5d2ec863aca7
+          image --exit-code 1 --severity HIGH,CRITICAL --ignore-unfixed baselinerepo-dev

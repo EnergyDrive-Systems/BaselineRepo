@@ -1,0 +1,9 @@
+# Replace examples with real GitHub teams before enabling release.
+# * @your-org/engineering
+# /.github/ @your-org/platform
+# /AGENTS.md @your-org/engineering
+# /.agents/ @your-org/engineering
+# /docs/standards.md @your-org/engineering
+# /infra/ @your-org/platform
+# /sql/ @your-org/data
+# /ignition/ @your-org/operations

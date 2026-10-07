@@ -1,0 +1,30 @@
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - python-venv:/workspace/.venv
+      - uv-cache:/home/developer/.cache/uv
+    environment:
+      UV_LINK_MODE: copy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  terraform:
+    image: hashicorp/terraform:1.14.0@sha256:3abcdb56739bf9c61a0290cfd1a2e41ef9c3799c0e6fa7f3c467f883367d3ecb
+    working_dir: /workspace/infra/terraform
+    volumes:
+      - .:/workspace
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  python-venv:
+  uv-cache:

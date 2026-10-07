@@ -1,0 +1,30 @@
+{
+  "name": "Organization Baseline",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "dev",
+  "runServices": ["dev"],
+  "workspaceFolder": "/workspace",
+  "overrideCommand": true,
+  "remoteUser": "developer",
+  "updateRemoteUserUID": false,
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "uv sync --locked",
+  "postStartCommand": "uv sync --locked",
+  "waitFor": "postStartCommand",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestArgs": ["tests"]
+      }
+    }
+  }
+}

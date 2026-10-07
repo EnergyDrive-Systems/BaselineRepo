@@ -1,0 +1,92 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  activation:
+    name: Deployment activation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require protected main and explicit activation
+        env:
+          REF: ${{ github.ref }}
+          ENABLED: ${{ vars.DEPLOYMENT_ENABLED }}
+        run: |
+          test "$REF" = refs/heads/main || { echo 'Deploy only from protected main'; exit 1; }
+          test "$ENABLED" = true || { echo 'Complete docs/deployment.md before activation'; exit 1; }
+
+  checks:
+    needs: activation
+    uses: ./.github/workflows/ci.yml
+
+  package:
+    name: Package exact source
+    needs: checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Package reviewed commit with checksum
+        run: |
+          mkdir -p artifacts
+          git archive --format=tar.gz --output=artifacts/source.tar.gz "$GITHUB_SHA"
+          printf '%s\n' "$GITHUB_SHA" > artifacts/source-commit.txt
+          cd artifacts
+          sha256sum source.tar.gz > source.tar.gz.sha256
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: release-${{ github.sha }}
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 14
+
+  test:
+    name: Test deployment and acceptance
+    needs: package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: test
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: release-${{ github.sha }}
+          path: artifacts/
+      - name: Verify promoted artifact
+        working-directory: artifacts
+        run: sha256sum -c source.tar.gz.sha256
+      - run: sh scripts/deploy.sh test artifacts/source.tar.gz
+      - run: sh scripts/deploy.sh smoke-test artifacts/source.tar.gz
+
+  production:
+    name: Approved production deployment
+    needs: test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: release-${{ github.sha }}
+          path: artifacts/
+      - name: Verify promoted artifact
+        working-directory: artifacts
+        run: sha256sum -c source.tar.gz.sha256
+      - run: sh scripts/deploy.sh production artifacts/source.tar.gz
+      - run: sh scripts/deploy.sh smoke-production artifacts/source.tar.gz
